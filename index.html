@@ -29,8 +29,16 @@ li {
     font-size: 18px;
 }
 
+#todo-list {
+    width: 30vw;
+}
+
 .button-delete {
     margin-right: 10px;
+}
+
+.item-date {
+    float: right;
 }
 
 </style>
@@ -60,8 +68,12 @@ li {
 
         let itemPElement = document.createElement('span');
         itemPElement.innerHTML = newItemText;
-
         newListItem.appendChild(itemPElement);
+
+        let dateElement = document.createElement('span');
+        dateElement.classList.add('item-date');
+        dateElement.innerHTML = (new Date()).toDateString();
+        newListItem.appendChild(dateElement);
 
         todoList.appendChild(newListItem);
     }
