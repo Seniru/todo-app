@@ -1,0 +1,15 @@
+#todo-list {
+    width: 30vw;
+}
+
+.button-delete {
+    margin-right: 10px;
+}
+
+.item-date {
+    float: right;
+}
+li {
+    list-style-type: none;
+    font-size: 18px;
+}
