@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="todo-item-text">
+    <button id="button-add" onclick="addItem()">Add todo</button>
+    <ul id="todo-list">
+        <li class="todo-item">
+            <button class="button-delete" onclick="deleteItem(this)">X</button>
+            item 1
+        </li>
+    </ul>
+
+</body>
+
+</html>
+
+<style>
+
+li {
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.button-delete {
+    margin-right: 10px;
+}
+
+</style>
+
+<script>
+    function addItem() {
+        // get the todo-item-text value
+        let newItemText = document.getElementById('todo-item-text').value;
+
+        // check if the newItemText is empty
+        if (newItemText === '') {
+            alert('You cannot add an empty todo item you silly goose!');
+            return;
+        }
+
+        let todoList = document.getElementById('todo-list');
+
+        let newListItem = document.createElement('li');
+        newListItem.classList.add('todo-item');
+
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('button-delete');
+        deleteButton.innerHTML = 'X';
+        deleteButton.setAttribute('onclick', 'deleteItem(this)');
+
+        newListItem.appendChild(deleteButton);
+
+        let itemPElement = document.createElement('span');
+        itemPElement.innerHTML = newItemText;
+
+        newListItem.appendChild(itemPElement);
+
+        todoList.appendChild(newListItem);
+    }
+
+    function deleteItem(item) {
+        console.log(item.parentElement);
+        
+        item.parentElement.remove();
+    }
+</script>
